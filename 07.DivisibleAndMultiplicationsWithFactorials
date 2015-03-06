@@ -1,0 +1,35 @@
+using System;
+using System.Numerics;					
+public class DivisibleAndMultiplicationWithFactorials
+{
+	public static void Main()
+	{
+		int n = int.Parse(Console.ReadLine());
+		int k = int.Parse(Console.ReadLine());
+		BigInteger kFactorial = 1;
+		BigInteger nFactorial = 1;
+		BigInteger nMinusKFactorials =1;
+		if (k<=1 || k>=n || 100 <=n )
+		  {
+		  	Console.WriteLine("invalid input");			  
+		  }
+		else 
+		{					
+		  for (int i =1; i<=n; i++)
+		  {
+		  	nFactorial *=i;
+			  if (i<=k)
+			  {
+			  	kFactorial *=i;
+			  }
+		  }
+		  for (int j=1; j <= n-k; j++)
+		  {
+		  	nMinusKFactorials *= j;
+		  }
+			BigInteger result = (nFactorial/(kFactorial*nMinusKFactorials));
+			Console.WriteLine(result);
+		}
+		Console.WriteLine();
+	}	
+}
